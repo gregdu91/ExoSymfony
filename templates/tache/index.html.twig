@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Liste des taches<h1>
+
+{% if taches is not empty %}
+
+
+    <table class="table">
+    <thread>
+        <tr>
+            <th>Nom</th>
+            <th>Utilisateur</th>
+        </tr>
+    </thread>
+    <tbody>
+        {% for tache in taches %}
+        <tr>
+            <td>
+            <a href="{{ path('une_tache',{'id':tache.id}) }}">{{tache.nom}}</a>
+        </td>
+           
+
+        </tr>
+    {% endfor %}
+
+{% else %}
+
+    <p>Il n'y a aucune tache</p>
+
+{% endif %}
+
+{{ form (form_ajout)}}
+
+{% endblock %}

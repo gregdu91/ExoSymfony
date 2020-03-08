@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Liste des utilisateurs<h1>
+
+{% if utilisateurs is not empty %}
+
+
+    <table class="table">
+    <thread>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+        </tr>
+    </thread>
+    <tbody>
+        {% for utilisateur in utilisateurs %}
+        <tr>
+            <td>
+            <a href="{{ path('un_utilisateur',{'id':utilisateur.id}) }}">{{utilisateur.nom}}</a>
+        </td>
+            <th>{{utilisateur.prenom}}</th>
+            <th>{{utilisateur.email}}</th>
+
+        </tr>
+    {% endfor %}
+
+{% else %}
+
+    <p>Il n'y a aucun utilisateur</p>
+
+{% endif %}
+
+
+
+    {{ form (form_ajout)}}
+
+    <button href="">Tache</button>
+
+{% endblock %}
